@@ -247,7 +247,10 @@ class res_partner(osv.Model, format_address):
         'contact_address': fields.function(_address_display,  type='char', string='Complete Address'),
 
         # technical field used for managing commercial fields
-        'commercial_partner_id': fields.function(_commercial_partner_id, type='many2one', relation='res.partner', string='Commercial Entity', store=_commercial_partner_store_triggers)
+        'commercial_partner_id': fields.function(_commercial_partner_id, type='many2one', relation='res.partner', string='Commercial Entity', store=_commercial_partner_store_triggers),
+        'gender':fields.selection(selection=[('male', 'Male'),
+                                ('female', 'Female')],
+                                  string='Gender')
     }
 
     # image: all image fields are base64 encoded and PIL-supported
